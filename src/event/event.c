@@ -35,4 +35,5 @@ void sb_event_destroy(sb_event* sevent) {
         al_free(units);
     }
     sb_list_destroy(sevent->units);
+    al_free(sevent);
 }

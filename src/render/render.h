@@ -21,5 +21,6 @@ sb_renderer* sb_renderer_create(unsigned short width, unsigned short height, uns
 void sb_renderer_destroy(sb_renderer* renderer);
 void sb_renderer_put_pixel(sb_renderer* renderer, unsigned short x, unsigned short y, sb_pixel_id pixel_id);
 unsigned short sb_renderer_get_color_count();
+unsigned short sb_renderer_get_pixel_size(sb_renderer* renderer);
 
 #endif //SANDBOX_RENDER_H

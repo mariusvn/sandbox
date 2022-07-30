@@ -43,3 +43,7 @@ void sb_renderer_put_pixel(sb_renderer* renderer, unsigned short x, unsigned sho
 unsigned short sb_renderer_get_color_count() {
     return SB_PIXEL_COUNT;
 }
+
+unsigned short sb_renderer_get_pixel_size(sb_renderer* renderer) {
+    return renderer->pixel_size;
+}

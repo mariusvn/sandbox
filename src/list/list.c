@@ -87,3 +87,14 @@ void* sb_list_remove_void(sb_list* list, unsigned int index) {
 
     return elem;
 }
+
+void sb_list_foreach(sb_list* list, sb_list_foreach_hander handler, void* optionnal_arg) {
+    sb_list_node* node = list->start;
+    unsigned int index = 0;
+
+    while (node) {
+        handler(node->element, index, optionnal_arg);
+        index++;
+        node = node->next;
+    }
+}
