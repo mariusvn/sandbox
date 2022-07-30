@@ -26,7 +26,7 @@ sb_element_registry* sb_element_registry_create(sb_renderer* renderer) {
 }
 
 void sb_element_registry_add(sb_element_registry* registry, sb_element_instance* instance) {
-    sb_list_push(registry->element_list, instance);
+    sb_list_push_start(registry->element_list, instance);
 }
 
 void sb_element_registry_destroy_childs_callback(sb_element_instance* instance, unsigned int index, void* nothing) {

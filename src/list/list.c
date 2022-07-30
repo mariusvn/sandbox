@@ -59,6 +59,27 @@ void sb_list_push_void(sb_list* list, void* element) {
     list->length ++;
 }
 
+void sb_list_push_start_void(sb_list* list, void* element) {
+    sb_list_node* node = sb_list_node_create(list, element);
+
+    /* if list empty */
+    if (list->start == NULL) {
+        assert(list->length == 0);
+        list->start = node;
+        list->length = 1;
+        return;
+    }
+
+    /* if list not empty */
+    sb_list_node* c_node = list->start;
+
+    c_node->prev = node;
+    node->next = c_node;
+    list->start = node;
+
+    list->length ++;
+}
+
 void* sb_list_get_void(sb_list* list, unsigned int index) {
     sb_list_node* node = list->start;
     sbasserts(node != NULL, "OutOfRangeException");

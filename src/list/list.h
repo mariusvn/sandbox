@@ -26,11 +26,13 @@ typedef void (*sb_list_foreach_hander)(void* element, unsigned int index, void* 
 sb_list* sb_list_create();
 void sb_list_destroy(sb_list* list);
 void sb_list_push_void(sb_list* list, void* element);
+void sb_list_push_start_void(sb_list* list, void* element);
 void* sb_list_get_void(sb_list* list, unsigned int index);
 void* sb_list_remove_void(sb_list* list, unsigned int index);
 void sb_list_foreach(sb_list* list, sb_list_foreach_hander handler, void* optionnal_arg);
 
 #define sb_list_push(list, element) sb_list_push_void(list, (void*) (element))
+#define sb_list_push_start(list, element) sb_list_push_start_void(list, (void*) (element))
 #define sb_list_remove(list, type, index) ((type)sb_list_remove_void(list, index))
 #define sb_list_get(list, type, index) ((type)sb_list_get_void(list, index))
 

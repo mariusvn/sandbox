@@ -22,7 +22,7 @@ void sb_init() {
     queue = al_create_event_queue();
     display = al_create_display(1600, 900);
     sevent = sb_event_create();
-    renderer = sb_renderer_create(1600, 900, 5, display);
+    renderer = sb_renderer_create(1600, 900, 20, display);
     registry = sb_element_registry_create(renderer);
 
     al_register_event_source(queue, al_get_keyboard_event_source());
@@ -33,8 +33,10 @@ void sb_init() {
     sb_event_register(sevent, ALLEGRO_EVENT_MOUSE_BUTTON_DOWN, &sb_mouse_on_click);
     sb_event_register(sevent, ALLEGRO_EVENT_MOUSE_BUTTON_UP, &sb_mouse_on_release);
 
-    sb_element_instance* test = sb_element_instance_create(SB_PIXEL_SAND, 5, 5);
+    sb_element_instance* test = sb_element_instance_create(SB_PIXEL_WATER, 5, 5);
+    sb_element_instance* testb = sb_element_instance_create(SB_PIXEL_WATER, 8, 8);
     sb_element_registry_add(registry, test);
+    sb_element_registry_add(registry, testb);
 }
 
 void sb_destroy() {
